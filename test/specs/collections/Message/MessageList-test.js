@@ -17,4 +17,28 @@ describe('MessageList', () => {
     shallow(<MessageList />)
       .should.have.className('list')
   })
+
+  describe('items', () => {
+    it('creates MessageListItem children', () => {
+      const items = ['foo', 'bar', 'baz']
+      const wrapper = shallow(<MessageList items={items} />)
+
+      wrapper.should.have.exactly(3).descendants('MessageListItem')
+
+      wrapper
+        .childAt(0)
+        .shallow()
+        .should.have.text(items[0])
+
+      wrapper
+        .childAt(1)
+        .shallow()
+        .should.have.text(items[1])
+
+      wrapper
+        .childAt(2)
+        .shallow()
+        .should.have.text(items[2])
+    })
+  })
 })
