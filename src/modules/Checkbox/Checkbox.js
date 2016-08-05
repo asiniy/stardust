@@ -41,6 +41,7 @@ const _meta = {
  */
 export default class Checkbox extends AutoControlledComponent {
   static propTypes = {
+    /** Additional classes. */
     className: PropTypes.string,
 
     /** Whether or not checkbox is checked. */
